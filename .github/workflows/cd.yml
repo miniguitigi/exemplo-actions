@@ -1,10 +1,10 @@
+#teste
 name: "Exemplo de CD"
 
 on:
   push:
     branches:
       - main
-
 
 jobs:
   deploy:
