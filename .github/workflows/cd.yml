@@ -1,0 +1,23 @@
+#teste
+name: "Exemplo de CD"
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Pull Docker image
+        run: docker pull miniguitigi/ci-exemplo:latest
+
+      - name: Stop Docker container
+        run: docker stop ci-exemplo || true
+
+      - name: Remove Docker container
+        run: docker rm ci-exemplo || true
+
+      - name: Run Docker container
+        run: docker run --name ci-exemplo -d -p 8080:8080 miniguitigi/ci-exemplo:latest
