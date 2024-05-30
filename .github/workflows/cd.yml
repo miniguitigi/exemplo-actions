@@ -1,6 +1,4 @@
-#teste
-#teste
-name: "Exemplo de CD"
+name: Exemplo de CD
 
 on:
   push:
