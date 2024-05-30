@@ -1,13 +1,15 @@
-FROM maven: 3-openjdk-17 as builder
+# Etapa de build
+FROM maven:3-openjdk-17 AS builder
 LABEL authors="miniguitigi"
 
 WORKDIR /build
 
-COPY . . 
+COPY . .
 
-RUN mvn clean packege -DskipTests -Dcheckstyle.skip=true
+RUN mvn clean package -DskipTests -Dcheckstyle.skip=true
 
-FROM openjdk:17-slim 
+# Etapa de execução
+FROM openjdk:17-slim
 
 WORKDIR /app
 
